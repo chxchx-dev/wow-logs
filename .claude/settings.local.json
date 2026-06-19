@@ -1,0 +1,17 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(pnpm --version)",
+      "Bash(pnpm create *)",
+      "Bash(pnpm config *)",
+      "Bash(pnpm install *)",
+      "Bash(pnpm exec *)",
+      "Bash(pnpm dlx *)",
+      "Bash(pnpm approve-builds *)",
+      "Bash(pnpm prisma *)",
+      "Bash(NODE_TLS_REJECT_UNAUTHORIZED=0 pnpm prisma init)",
+      "Bash(NODE_TLS_REJECT_UNAUTHORIZED=0 DATABASE_URL=\"postgresql://gpc:gpc@localhost:5432/gpc\" pnpm prisma generate)",
+      "Bash(NODE_TLS_REJECT_UNAUTHORIZED=0 pnpm prisma generate)"
+    ]
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "name": "guild-performance-coach",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev:web": "pnpm --dir apps/web dev",
+    "dev:api": "pnpm --dir apps/api start:dev",
+    "dev:db": "docker compose up -d postgres redis",
+    "dev": "pnpm dev:db && concurrently \"pnpm dev:web\" \"pnpm dev:api\""
+  },
+  "devDependencies": {
+    "concurrently": "latest"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": ["@prisma/engines", "@prisma/client", "prisma", "unrs-resolver"]
+  }
+}
