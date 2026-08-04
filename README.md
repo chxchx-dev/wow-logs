@@ -50,6 +50,12 @@ pnpm dev:api    # NestJS en localhost:4000
 pnpm dev:web    # Vite en localhost:5173
 ```
 
+Si Prisma falla con `P1000` contra `localhost` aunque `DATABASE_URL` esté correcta, normalmente el volumen local de PostgreSQL conserva credenciales viejas. En ese caso resetea solo la base local del proyecto con:
+
+```bash
+pnpm dev:db:reset
+```
+
 ## Variables de entorno
 
 Copia `.env.example` a `apps/api/.env` y completa:
