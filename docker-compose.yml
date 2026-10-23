@@ -7,15 +7,9 @@ services:
       POSTGRES_PASSWORD: gpc
       POSTGRES_DB: gpc
     ports:
-      - "5432:5432"
+      - "127.0.0.1:5432:5432"
     volumes:
       - gpc_postgres:/var/lib/postgresql/data
-
-  redis:
-    image: redis:7-alpine
-    container_name: gpc-redis
-    ports:
-      - "6379:6379"
 
 volumes:
   gpc_postgres:

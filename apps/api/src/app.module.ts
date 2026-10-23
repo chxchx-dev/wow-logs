@@ -1,6 +1,9 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
-import { ThrottlerModule } from '@nestjs/throttler';
+import { APP_GUARD } from '@nestjs/core';
+import { ThrottlerGuard, ThrottlerModule } from '@nestjs/throttler';
+import { AppController } from './app.controller';
+import { AppService } from './app.service';
 import { PrismaModule } from './modules/prisma/prisma.module';
 import { WarcraftLogsModule } from './modules/warcraftlogs/warcraftlogs.module';
 import { ReportsModule } from './modules/reports/reports.module';
@@ -23,5 +26,7 @@ import { CacheModule } from './modules/cache/cache.module';
     BlizzardModule,
     CacheModule,
   ],
+  controllers: [AppController],
+  providers: [AppService, { provide: APP_GUARD, useClass: ThrottlerGuard }],
 })
 export class AppModule {}
